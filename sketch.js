@@ -63,7 +63,7 @@ function drawKeypoints() {
           noseX = keypoint.position.x;
           noseY = keypoint.position.y;
 
-          pg.stroke(230, 80, 0);
+          pg.stroke(0, 200, 100);
           pg.strokeWeight(5);
           pg.line(noseX, noseY, pNoseX, pNoseY);
 
