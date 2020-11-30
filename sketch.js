@@ -20,6 +20,22 @@ let noseY;
 let pNoseX;
 let pNoseY;
 
+let redcolor;
+let greencolor;
+let bluecolor;
+
+function colorchoicebuttonred() {
+  redcolor = document.getElementById("colorchoicered");
+}
+
+function colorchoicebuttongreen() {
+  greencolor = document.getElementById("colorchoicegreen");
+}
+
+function colorchoicebuttonblue() {
+  bluecolor = document.getElementById("colorchoiceblue");
+}
+
 function setup() {
   createCanvas(640, 480);
   video = createCapture(VIDEO);
