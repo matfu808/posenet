@@ -9,7 +9,7 @@ PoseNet example using p5.js
 === */
 
 let video;
-let poseNet; 
+let poseNet;
 let poses = [];
 let skeletons = [];
 
@@ -24,15 +24,9 @@ let redcolor;
 let greencolor;
 let bluecolor;
 
-function colorchoicebuttonred() {
+function colorchange() {
   redcolor = document.getElementById("colorchoicered");
-}
-
-function colorchoicebuttongreen() {
   greencolor = document.getElementById("colorchoicegreen");
-}
-
-function colorchoicebuttonblue() {
   bluecolor = document.getElementById("colorchoiceblue");
 }
 
@@ -47,7 +41,7 @@ function setup() {
   // Create a new poseNet method with a single detection
   poseNet = ml5.poseNet(video, modelReady);
 
-  poseNet.on('pose', function(results) {
+  poseNet.on("pose", function (results) {
     poses = results;
   });
 
@@ -79,7 +73,7 @@ function drawKeypoints() {
           noseX = keypoint.position.x;
           noseY = keypoint.position.y;
 
-          pg.stroke(0, 200, 100);
+          pg.stroke(redcolor, greencolor, bluecolor);
           pg.strokeWeight(5);
           pg.line(noseX, noseY, pNoseX, pNoseY);
 
@@ -100,7 +94,12 @@ function drawSkeleton() {
       let partA = poses[i].skeleton[j][0];
       let partB = poses[i].skeleton[j][1];
       stroke(255, 0, 0);
-      line(partA.position.x, partA.position.y, partB.position.x, partB.position.y);
+      line(
+        partA.position.x,
+        partA.position.y,
+        partB.position.x,
+        partB.position.y
+      );
     }
   }
 }
@@ -115,5 +114,5 @@ function keyPressed() {
 }
 
 function modelReady() {
-  select('#status').html('model Loaded');
+  select("#status").html("model Loaded");
 }
